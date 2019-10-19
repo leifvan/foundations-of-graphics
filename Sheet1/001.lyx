@@ -1,0 +1,273 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Sheet 1 - Transformations
+\end_layout
+
+\begin_layout Author
+Jan Scheffczyk - 3242317
+\begin_inset Newline newline
+\end_inset
+
+Leif van Holland - 
+\begin_inset Newline newline
+\end_inset
+
+Oliver Leuscher - 3205025
+\end_layout
+
+\begin_layout Section
+Practical
+\end_layout
+
+\begin_layout Standard
+Please find the solution in the accompanying .py file.
+\end_layout
+
+\begin_layout Section
+Theoretical
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathbf{a,\mathbf{b\mathbf{,c\in\mathbb{R}^{3}}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+a)
+\end_layout
+
+\begin_layout Paragraph
+Show that 
+\begin_inset Formula $\mathbf{a\times(\mathbf{b+\mathbf{c)=\mathbf{a\times\mathbf{\mathbf{b}+\mathbf{a\times\mathbf{c}}}}}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula $\mathrm{Let\;}\mathbf{d=}\mathbf{a\times(\mathbf{b+\mathbf{c)-(\mathbf{a\times\mathbf{\mathbf{b}+\mathbf{a\times\mathbf{c)}}}}}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbf{d^{2}=} & \mathbf{\mathbf{\mathbf{d}\cdot}(\mathbf{\mathbf{a\times(\mathbf{b+\mathbf{c)}}}-\mathbf{a\times\mathbf{\mathbf{b}-\mathbf{a\times\mathbf{c}}}})}}\\
+= & \mathbf{d\cdot(\mathbf{a\times(\mathbf{b+\mathbf{c))-\mathbf{d\cdot(\mathbf{a\times\mathbf{b)-\mathbf{d\cdot\mathbf{(a\times\mathbf{c)}}}}}}}}}} & \mathrm{using}\eqref{eq:tripleproduct}\\
+= & (\mathbf{a\times\mathbf{d)\cdot(\mathbf{b+\mathbf{c)-\mathbf{b\cdot(\mathbf{a\times\mathbf{d)-\mathbf{c\cdot(\mathbf{a\times\mathbf{d)}}}}}}}}}} & \mathrm{}\\
+= & (\mathbf{a\times\mathbf{d)\cdot(\mathbf{b+\mathbf{c)-(\mathbf{a\times\mathbf{d)\cdot(\mathbf{b+\mathbf{d)}}}}}}}}\\
+= & 0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\forall\mathbf{x,y,z\in\mathbb{R}^{3}|\mathbf{x\cdot(\mathbf{y\times\mathbf{z)=\mathbf{y\cdot(\mathbf{x\times\mathbf{z)}}}}}}}\label{eq:tripleproduct}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+b)
+\end_layout
+
+\begin_layout Paragraph
+Show that 
+\begin_inset Formula $\mathbf{a\cdot(\mathbf{a\times\mathbf{b)}}}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbf{a}\cdot(\mathbf{a\times\mathbf{\mathbf{b)}=}} & \left(\begin{array}{c}
+\mathbf{a_{1}}\\
+\mathbf{a_{2}}\\
+\mathbf{a_{3}}
+\end{array}\right)\cdot\left(\begin{array}{c}
+\mathbf{a_{2}\mathbf{b_{3}-\mathbf{a_{3}\mathbf{b_{2}}}}}\\
+\mathbf{a_{3}\mathbf{b_{1}-\mathbf{a_{1}\mathbf{b_{3}}}}}\\
+\mathbf{\mathbf{a_{1}\mathbf{b_{2}-\mathbf{a_{2}\mathbf{b_{1}}}}}}
+\end{array}\right)\\
+= & \mathbf{a_{1}(\mathbf{a_{2}\mathbf{b_{3}-\mathbf{a_{3}}\mathbf{b_{2})+\mathbf{a_{2}}(}}a_{3}\mathbf{b_{1}-\mathbf{a_{1}\mathbf{b_{3}}}})+\mathbf{a_{3}(}}}\mathbf{a}_{1}\mathbf{b_{2}-\mathbf{a_{2}\mathbf{b_{1}}}})\\
+= & \mathbf{a_{1}\mathbf{a_{2}}\mathbf{b_{3}-\mathbf{a_{1}}}}\mathbf{a_{2}}\mathbf{b_{3}+\mathbf{a_{1}\mathbf{a_{3}}\mathbf{b_{2}-\mathbf{a_{1}\mathbf{a_{3}\mathbf{b_{2}+\mathbf{a_{1}\mathbf{a_{3}\mathbf{b_{2}-\mathbf{a_{1}\mathbf{a_{3}\mathbf{b_{2}}}}}}}}}}}}}\\
+= & 0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+c)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbf{a\times\mathbf{b}}\stackrel{def}{=} & \left|\begin{matrix}\mathbf{e_{1}} & \mathbf{a_{x}} & \mathbf{b_{x}}\\
+\mathbf{e_{2}} & \mathbf{\mathbf{a_{y}}} & \mathbf{b_{y}}\\
+\mathbf{e_{3}} & \mathbf{a_{z}} & \mathbf{b_{z}}
+\end{matrix}\right|\\
+= & \mathbf{e_{1}\left|\begin{matrix}\mathbf{a_{y}} & \mathbf{b_{y}}\\
+\mathbf{a_{z}} & \mathbf{b_{z}}
+\end{matrix}\right|-\mathbf{e_{2}\left|\begin{matrix}\mathbf{a_{x}} & \mathbf{b_{x}}\\
+\mathbf{\mathbf{a_{z}}} & \mathbf{b_{z}}
+\end{matrix}\right|+\mathbf{e_{3}}\left|\begin{matrix}\mathbf{a_{x}} & \mathbf{b_{x}}\\
+\mathbf{a_{y}} & \mathbf{b_{y}}
+\end{matrix}\right|}} & \mathrm{using}\mathrm{Laplace}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus 
+\begin_inset Formula $\left|\mathbf{a\times\mathbf{b}}\right|=\left|e_{1}\left|\begin{matrix}\mathbf{a_{y}} & \mathbf{b_{y}}\\
+\mathbf{a_{z}} & \mathbf{b_{z}}
+\end{matrix}\right|-\mathbf{e_{2}\left|\begin{matrix}\mathbf{a_{x}} & \mathbf{b_{x}}\\
+\mathbf{\mathbf{a_{z}}} & \mathbf{b_{z}}
+\end{matrix}\right|+\mathbf{e_{3}}\left|\begin{matrix}\mathbf{a_{x}} & \mathbf{b_{x}}\\
+\mathbf{a_{y}} & \mathbf{b_{y}}
+\end{matrix}\right|}\right|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+For second part we know that 
+\begin_inset Formula $\det(\mathbf{A)=\det(\mathbf{A^{\mathrm{T}})}}$
+\end_inset
+
+and as such it is correct per definition given on the slides.
+\end_layout
+
+\begin_layout Subsection
+d)
+\end_layout
+
+\begin_layout Paragraph
+Show that the tripleproduct 
+\begin_inset Formula $\mathbf{a}\cdot(\mathbf{b\times\mathbf{c)=\mathbf{\mathbf{c}\cdot(\mathbf{\mathbf{a}\times\mathbf{\mathbf{b})}}}}}$
+\end_inset
+
+ holds.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbf{\mathbf{c}\cdot(\mathbf{\mathbf{a}\times\mathbf{\mathbf{\mathbf{b}})=}}} & \left(\begin{matrix}\mathbf{\mathbf{c}_{1}}\\
+\mathbf{\mathbf{c}_{2}}\\
+\mathbf{c_{3}}
+\end{matrix}\right)\cdot\left(\begin{matrix}\mathbf{a_{2}\mathbf{b_{3}-\mathbf{a_{3}\mathbf{b_{2}}}}}\\
+\mathbf{a_{3}\mathbf{b_{1}-\mathbf{a_{1}\mathbf{b_{3}}}}}\\
+\mathbf{\mathbf{a_{1}\mathbf{b_{2}-\mathbf{a_{2}\mathbf{b_{1}}}}}}
+\end{matrix}\right)\\
+= & \mathbf{a_{2}\mathbf{b_{3}\mathbf{c_{1}-\mathbf{a_{3}\mathbf{\mathbf{b_{2}\mathbf{c_{1}+\mathbf{a_{3}\mathbf{b_{1}\mathbf{c_{2}}-\mathbf{\mathbf{a_{1}\mathbf{b_{3}\mathbf{c_{2}}+\mathbf{a_{1}\mathbf{b_{2}\mathbf{c_{3}-\mathbf{a_{2}\mathbf{\mathbf{b_{1}}c_{3}}}}}}}}}}}}}}}}}}\\
+= & \mathbf{a_{2}(\mathbf{b_{3}\mathbf{c_{1}-\mathbf{b_{1}\mathbf{c_{3})+}}}}}\mathbf{a_{3}(\mathbf{a}_{1}\mathbf{c_{2}}}-\mathbf{\mathbf{b}}_{2}\mathbf{c_{1}})\mathbf{+a_{1}\mathbf{(\mathbf{b_{2}\mathbf{c_{3}-\mathbf{b_{3}}\mathbf{c_{2})}}}}}\\
+= & \mathbf{a\cdot(\mathbf{b}\times\mathbf{c)}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

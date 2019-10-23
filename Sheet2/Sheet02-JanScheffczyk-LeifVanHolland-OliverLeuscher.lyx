@@ -88,7 +88,7 @@ Leif van Holland - 2563657
 \begin_inset Newline newline
 \end_inset
 
-Oliver Leuscher - 3205025
+Oliver Leuschner - 3205025
 \end_layout
 
 \begin_layout Section
@@ -112,29 +112,67 @@ a)
 \end_layout
 
 \begin_layout Standard
+We can w.l.o.g.
+ simplify the following formulas by assuming 
+\begin_inset Formula $t_{0}=0$
+\end_inset
+
+.
+ As the particle is at rest up until 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+, we get 
+\begin_inset Formula $v(0)=0$
+\end_inset
+
+, 
+\begin_inset Formula $x(0)=(x_{0},y_{0})^{T}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a(t)=r\cdot\begin{pmatrix}\cos t\\
+\sin t
+\end{pmatrix},\forall t\geq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the following integrals
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-a(t)=\; & \left[\begin{matrix}r\:cos\left(t\right)\\
-r\:sin\left(t\right)
-\end{matrix}\right],\forall t\in\mathbb{R}|t\geq t_{0}\\
-v\left(t\right)=\; & =\;v\left(t\right)+\overset{}{\underset{}{\int}}a\left(t\right)dt\overset{}{\underset{}{=\int}}\left[\begin{matrix}r\:cos\left(t\right)\\
-r\:sin\left(t\right)
-\end{matrix}\right]dt=\left[\begin{matrix}r\:sin\left(t\right)\\
--r\:cos\left(t\right)
-\end{matrix}\right]\\
-x\left(t\right)=\; & x\left(t_{0}\right)+\overset{}{\underset{}{\int}}v\left(t\right)dt=\left[\begin{matrix}-r\:cos\left(t\right)\\
--r\:sin\left(t\right)
-\end{matrix}\right]\\
-v\left(t_{1}\right)=\; & \left[\begin{matrix}r\:sin\left(t_{1}\right)\\
--r\:cos\left(t_{1}\right)
-\end{matrix}\right]-\left[\begin{matrix}r\:sin\left(t_{0}\right)\\
--r\:cos\left(t_{0}\right)
-\end{matrix}\right]\\
-x\left(t_{1}\right)=\; & x\left(t_{0}\right)+\left[\begin{matrix}-r\:cos\left(t_{1}\right)\\
--r\:sin\left(t_{1}\right)
-\end{matrix}\right]-\left[\begin{matrix}-r\:cos\left(t_{0}\right)\\
--r\:sin\left(t_{0}\right)
-\end{matrix}\right]
+v\left(t_{1}\right) & =\overset{t_{1}}{\underset{0}{\int}}a\left(t\right)dt+v(0)=\overset{t_{1}}{\underset{0}{\int}}r\cdot\begin{pmatrix}\cos t\\
+\sin t
+\end{pmatrix}dt+0=r\cdot\left[\begin{pmatrix}\sin t\\
+-\cos t
+\end{pmatrix}\right]_{0}^{t_{1}}\\
+ & =r\cdot\begin{pmatrix}\sin t_{1}\\
+-\cos t_{1}+1
+\end{pmatrix}\\
+x(t_{1}) & =\overset{t_{1}}{\underset{0}{\int}}v\left(t\right)dt+x(0)=\overset{t_{1}}{\underset{0}{\int}}r\cdot\begin{pmatrix}\sin t_{1}\\
+-\cos t_{1}+1
+\end{pmatrix}dt+\begin{pmatrix}x_{0}\\
+y_{0}
+\end{pmatrix}\\
+ & =r\cdot\left[\begin{pmatrix}-\cos t\\
+t-\sin t
+\end{pmatrix}\right]_{0}^{t_{1}}+\begin{pmatrix}x_{0}\\
+y_{0}
+\end{pmatrix}=r\cdot\begin{pmatrix}-\cos t_{1}+1+x_{0}\\
+t_{1}-\sin t_{1}+y_{0}
+\end{pmatrix}
 \end{align*}
 
 \end_inset
@@ -166,7 +204,7 @@ x_{n+1}=x_{n}+\dot{x_{n}}\Delta t
 
 \end_inset
 
-By comparison with the taylor expansion we know that the euler method approximat
+By comparison with the Taylor expansion we know that the Euler method approximat
 es the value with a single step error of 
 \begin_inset Formula $O\left(\Delta t^{2}\right)$
 \end_inset
@@ -180,20 +218,20 @@ es the value with a single step error of
 \begin_inset Formula $x\left(t_{0}\right)$
 \end_inset
 
- we apply the euler method 
-\begin_inset Formula $h$
+ we apply the Euler method 
+\begin_inset Formula $k$
 \end_inset
 
  times with the step size of 
-\begin_inset Formula $\frac{t-t_{0}}{h}$
+\begin_inset Formula $\frac{t-t_{0}}{k}$
 \end_inset
 
  for an accumulated error of 
-\begin_inset Formula $O\left(h\right)$
+\begin_inset Formula $O\left(k\right)$
 \end_inset
 
-over the approximation.
- For particle kinematics we need to apply the euler method twice.
+ over the approximation.
+ For particle kinematics we need to apply the Euler method twice.
  Once to integrate acceleration to velocity and then again to integrate
  velocity to the position.
 \end_layout
@@ -201,7 +239,7 @@ over the approximation.
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\vec{v}_{n+1}=\vec{v}_{n}+\vec{a}_{n}\Delta t
+v_{n+1}=v_{n}+a_{n}\Delta t
 \]
 
 \end_inset
@@ -212,7 +250,7 @@ over the approximation.
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\vec{x}_{n+1}=\vec{x}_{n}+\vec{v}_{n+1}\Delta t
+x_{n+1}=x_{n}+v_{n+1}\Delta t
 \]
 
 \end_inset
@@ -225,39 +263,38 @@ c)
 \end_layout
 
 \begin_layout Standard
-Assuming we start with 
-\begin_inset Formula $t=0$
+Again, we assume 
+\begin_inset Formula $t_{0}=0$
 \end_inset
 
+ and define 
+\begin_inset Formula $x_{0}=x(0)=(1,0)^{T},v_{0}=v(0)=(0,0)^{T}$
+\end_inset
 
+.
+ For 
+\begin_inset Formula $\Delta t=h=\pi$
+\end_inset
+
+ we get
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\vec{v}_{n+1}=0+\left[\begin{matrix}1\mathrm{cos\left(0\right)}\\
-1\mathrm{sin\left(0\right)}
-\end{matrix}\right]\pi=\left[\begin{matrix}\pi\\
+\begin{align*}
+v_{1}=\: & 0+1\cdot\begin{pmatrix}\cos0\\
+\sin0
+\end{pmatrix}\cdot\pi=\begin{pmatrix}\pi\\
 0
-\end{matrix}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\vec{x}_{n+1}=\left[\begin{matrix}1\\
+\end{pmatrix}\\
+x_{1}= & \begin{pmatrix}1\\
 0
-\end{matrix}\right]+\left[\begin{matrix}\pi\\
+\end{pmatrix}+\begin{pmatrix}\pi\\
 0
-\end{matrix}\right]\pi=\left[\begin{matrix}1+\pi^{2}\\
+\end{pmatrix}\cdot\pi=\begin{pmatrix}1+\pi^{2}\\
 0
-\end{matrix}\right]
-\]
+\end{pmatrix}
+\end{align*}
 
 \end_inset
 
@@ -266,6 +303,177 @@ Assuming we start with
 
 \begin_layout Subsection
 d)
+\end_layout
+
+\begin_layout Standard
+Calculating 4 steps with 
+\begin_inset Formula $h=\frac{\pi}{4}$
+\end_inset
+
+ results in
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+v_{1}= & 0+\begin{pmatrix}\cos0\\
+\sin0
+\end{pmatrix}\cdot\text{\ensuremath{\frac{\pi}{4}=\frac{\pi}{4}\begin{pmatrix}1\\
+0
+\end{pmatrix}}}\\
+x_{1}= & \begin{pmatrix}1\\
+0
+\end{pmatrix}+\left(\frac{\pi}{4}\right)^{2}\begin{pmatrix}1\\
+0
+\end{pmatrix}\\
+v_{2}= & \frac{\pi}{4}\left(\begin{pmatrix}1\\
+0
+\end{pmatrix}+\begin{pmatrix}\cos\frac{\pi}{4}\\
+\sin\frac{\pi}{4}
+\end{pmatrix}\right)=\frac{\pi}{4}\begin{pmatrix}1+\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}\\
+x_{2}= & \begin{pmatrix}1\\
+0
+\end{pmatrix}+\left(\frac{\pi}{4}\right)^{2}\left(\begin{pmatrix}1\\
+0
+\end{pmatrix}+\begin{pmatrix}1+\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}\right)=\begin{pmatrix}1\\
+0
+\end{pmatrix}+\left(\frac{\pi}{4}\right)^{2}\begin{pmatrix}2+\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+v_{3}= & \frac{\pi}{4}\left(\begin{pmatrix}1+\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}+\begin{pmatrix}\cos\frac{\pi}{2}\\
+\sin\frac{\pi}{2}
+\end{pmatrix}\right)=\frac{\pi}{4}\begin{pmatrix}1+\frac{1}{\sqrt{2}}\\
+1+\frac{1}{\sqrt{2}}
+\end{pmatrix}\\
+x_{3}= & \begin{pmatrix}1\\
+0
+\end{pmatrix}+\left(\frac{\pi}{4}\right)^{2}\left(\begin{pmatrix}2+\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}+\begin{pmatrix}1+\frac{1}{\sqrt{2}}\\
+1+\frac{1}{\sqrt{2}}
+\end{pmatrix}\right)=\begin{pmatrix}1\\
+0
+\end{pmatrix}+\left(\frac{\pi}{4}\right)^{2}\begin{pmatrix}3+\frac{2}{\sqrt{2}}\\
+1+\frac{2}{\sqrt{2}}
+\end{pmatrix}\\
+v_{4}= & \frac{\pi}{4}\left(\begin{pmatrix}1+\frac{1}{\sqrt{2}}\\
+1+\frac{1}{\sqrt{2}}
+\end{pmatrix}+\begin{pmatrix}\cos\frac{3\pi}{4}\\
+\sin\frac{3\pi}{4}
+\end{pmatrix}\right)=\frac{\pi}{4}\begin{pmatrix}1\\
+1+\frac{2}{\sqrt{2}}
+\end{pmatrix}\\
+x_{4}= & \begin{pmatrix}1\\
+0
+\end{pmatrix}+\left(\frac{\pi}{4}\right)^{2}\left(\begin{pmatrix}3+\frac{2}{\sqrt{2}}\\
+1+\frac{2}{\sqrt{2}}
+\end{pmatrix}+\begin{pmatrix}1\\
+1+\frac{2}{\sqrt{2}}
+\end{pmatrix}\right)=\begin{pmatrix}1\\
+0
+\end{pmatrix}+\left(\frac{\pi}{4}\right)^{2}\begin{pmatrix}4+\frac{2}{\sqrt{2}}\\
+2+\frac{4}{\sqrt{2}}
+\end{pmatrix}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+e)
+\end_layout
+
+\begin_layout Standard
+Using the analytic formula from above, we get
+\begin_inset Formula 
+\[
+x(\pi)=\begin{pmatrix}-\cos(\pi)+1+1\\
+\pi-\sin(\pi)+0
+\end{pmatrix}=\begin{pmatrix}3\\
+\pi
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pos_plot.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A plot of the integration results from c) (blue), d) (orange) and a) (green).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Fig.
+ 1 we see that the Euler method for step size 
+\begin_inset Formula $h=\pi$
+\end_inset
+
+ strongly differs from the correct value.
+ Reducing the step size to 
+\begin_inset Formula $h=\frac{\pi}{4}$
+\end_inset
+
+ improves the outcome, but there is still a noticeable deviation from the
+ analytically derived trajectory.
+ These effects stem from the fact that the acceleration 
+\begin_inset Formula $a(t)$
+\end_inset
+
+ changes significantly on the interval 
+\begin_inset Formula $[0,\pi]$
+\end_inset
+
+.
+ The sampling at four points is too coarse to get an accurate approximation.
 \end_layout
 
 \end_body

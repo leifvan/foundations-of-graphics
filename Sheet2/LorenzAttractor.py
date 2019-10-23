@@ -34,7 +34,7 @@ def Euler(f, y0, stepsize, steps):
     # your code goes here...
     yi = y0
     ti = 0
-    for i in range(steps):
+    for i in range(1,steps):
         yi += stepsize * f(ti, yi)
         ti += stepsize
         x[:, i] = yi
@@ -52,15 +52,15 @@ def RungeKutta4thOrder(f, y0, stepsize, steps):
     x = np.zeros((3, steps))
     # your code goes here...
     yi = y0
-    ti = 0
+    t_n = 0
     k = np.zeros((4, 3))
     for i in range(steps):
-        k[0] = f(ti, yi)
-        k[1] = 2 * f(ti + stepsize/2, yi + 0.5 * stepsize * k[0])
-        k[2] = 2 * f(ti + stepsize/2, yi + 0.5 * stepsize * k[1])
-        k[3] = f(ti + stepsize, yi + stepsize * k[2])
-        yi += stepsize * (1 / 6) * k.sum(axis=0)
-        ti += stepsize
+        k[0] = f(t_n, yi)
+        k[1] = f(t_n + stepsize/2, yi + 0.5 * stepsize * k[0])
+        k[2] = f(t_n + stepsize/2, yi + 0.5 * stepsize * k[1])
+        k[3] = f(t_n + stepsize, yi + stepsize * k[2])
+        yi += stepsize * (1 / 6) * (k[0]+2*k[1]+2*k[2]+k[3])
+        t_n += stepsize
         x[:, i] = yi
     return x
 

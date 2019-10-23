@@ -57,8 +57,8 @@ def RungeKutta4thOrder(f, y0, stepsize, steps):
     for i in range(steps):
         k[0] = f(ti, yi)
         k[1] = 2 * f(ti + stepsize/2, yi + 0.5 * stepsize * k[0])
-        k[2] = 2 * f(ti + stepsize/2, yi + 0.5 * stepsize * k[1])
-        k[3] = f(ti + stepsize, yi + stepsize * k[2])
+        k[2] = 2 * f(ti + stepsize/2, yi + 0.5 * stepsize * k[1] / 2)
+        k[3] = f(ti + stepsize, yi + stepsize * k[2] / 2)
         yi += stepsize * (1 / 6) * k.sum(axis=0)
         ti += stepsize
         x[:, i] = yi

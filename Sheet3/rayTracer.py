@@ -120,20 +120,23 @@ def rayTracing(rayOrigin, rayDir):
 
     ###########################################################                
     # Computing the color, the default is ambient.
-    color_ray = obj.get('ambient', ambient)
+
     ##################################################################################################################
     ##TODO
     # part c
     # Lambert shading (diffuse part).
     # Blinn-Phong shading (specular part).
+    color_ray=1
     diffuse_color=obj.get('diffuse_c', diffuse_c)
-    color_ray+=directionToLight@N.T*diffuse_color*lightFactor
+    color_ray=directionToLight@N.T*diffuse_color
 
     halfway = normalizer(directionToLight + directionToCamera)
     specular_color=obj.get('specular_c', specular_c)
     specular_coefficient = obj.get('specular_k', specular_k)
-    color_ray+=np.power(np.max(N@halfway,0),specular_coefficient)*specular_color*lightFactor
+    color_ray+=np.power(np.max(N@halfway,0),specular_coefficient)*specular_color
 
+    color_ray*=lightFactor
+    color_ray += obj.get('ambient', ambient)
     color_ray*=color
 
     ##################################################################################################################
@@ -166,7 +169,7 @@ diffuse_c = 1.
 specular_c = 1.
 specular_k = 50
 
-hit_max = 4  # Maximum number of light reflection.
+hit_max = 5  # Maximum number of light reflection.
 color = np.zeros(3)  # Initialize current color.
 O = np.array([0., 0.2, -1.])  # Camera position (origin of rays).
 Q = np.array([0., 0., 0.])  # Camera pointing toward.
@@ -185,28 +188,18 @@ for i, x in enumerate(np.linspace(Sc[0], Sc[2], width)):
         hit = 0
         rayOrigin, rayDir = O, D
         reflection = 1.
-        # Loop through initial and reflected rays.
+        # Loop through initial and (first?) reflected rays.
         while hit < hit_max:
             rayTraced = rayTracing(rayOrigin, rayDir)
             if rayTraced == None:
                 break;
             obj, M, N, color_ray = rayTraced
-            #####################################################################
-            ##TODO
-            # part b
-            # Reflection can be implemented by create a new ray.
-            #####################################################################
-
             hit += 1
+            color += reflection * color_ray
             reflection *= obj.get('reflection')
-            color += (1-reflection) * color_ray
             reflectionDirection = rayDir - 2 * N * (rayDir @ N.T)
-            reflectionTraced = rayTracing(M + eps * reflectionDirection, reflectionDirection)
-
-            if reflectionTraced == None:
-                continue
-            object_reflected, _, _, color_reflected = reflectionTraced
-            color +=  reflection*color_reflected
+            rayOrigin=M+eps*N
+            rayDir=reflectionDirection
 
         img[height - j - 1, i, :] = np.clip(color, 0, 1)
     report_progress((i+1)*height, width*height)    

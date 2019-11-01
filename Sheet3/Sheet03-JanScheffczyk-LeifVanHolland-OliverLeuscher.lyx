@@ -152,5 +152,130 @@ n in a directional cone around the perfect perfection direction.
  This will reduce total number of rays needed to get a similar result.
 \end_layout
 
+\begin_layout Section
+Plane reflection
+\end_layout
+
+\begin_layout Subsection
+a)
+\end_layout
+
+\begin_layout Standard
+Law if reflection is given in the lecture:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{R}=\mathbf{d}-2\left(\mathbf{N}\cdot\mathbf{d}\right)\mathbf{N}
+\]
+
+\end_inset
+
+In our example 
+\begin_inset Formula $\mathbf{d}=\mathbf{L}-\mathbf{C}=\left(\begin{matrix}x\\
+-8
+\end{matrix}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{N}=\left(\begin{matrix}0\\
+1
+\end{matrix}\right)$
+\end_inset
+
+thus:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{R}=\left(\begin{matrix}x\\
+-8
+\end{matrix}\right)+2\left(\left(\begin{matrix}0\\
+1
+\end{matrix}\right)\cdot\left(\begin{matrix}x\\
+-8
+\end{matrix}\right)\right)\cdot\left(\begin{matrix}0\\
+1
+\end{matrix}\right)=\left(\begin{matrix}x\\
+8
+\end{matrix}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+By solving 
+\begin_inset Formula $\left(\begin{matrix}x\\
+8
+\end{matrix}\right)k=\left(\begin{matrix}375\\
+194
+\end{matrix}\right)$
+\end_inset
+
+we know that the reflection of the plan will be seen at 
+\begin_inset Formula $\left(\begin{matrix}15.30\\
+8
+\end{matrix}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+b)
+\end_layout
+
+\begin_layout Standard
+Using snells's law as given in the lecture
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename snell.png
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+using 
+\begin_inset Formula $\eta=\frac{n_{2}}{n_{1}}=1.32963169202131$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{d}=\left(\begin{matrix}10\\
+-8
+\end{matrix}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{N}=\left(\begin{matrix}0\\
+1
+\end{matrix}\right)$
+\end_inset
+
+ we get 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{T}=\left(\begin{matrix}\\
+\\
+\end{matrix}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

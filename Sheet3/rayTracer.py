@@ -198,7 +198,7 @@ for i, x in enumerate(np.linspace(Sc[0], Sc[2], width)):
             color += reflection * color_ray
             reflection *= obj.get('reflection')
             reflectionDirection = rayDir - 2 * N * (rayDir @ N.T)
-            # rayOrigin=M+eps*N
+            # rayOrigin=M+eps*N		# uncomment lines for reflections
             # rayDir=reflectionDirection
 
         img[height - j - 1, i, :] = np.clip(color, 0, 1)

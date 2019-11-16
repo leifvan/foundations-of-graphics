@@ -107,12 +107,16 @@ Theoretical Part
 Assignment 3) Cumulative Distribution Function
 \end_layout
 
+\begin_layout Subsubsection
+a)
+\end_layout
+
 \begin_layout Standard
 The cumulative distribution function 
 \begin_inset Formula $F$
 \end_inset
 
- of 
+ of the PDF 
 \begin_inset Formula $f$
 \end_inset
 
@@ -137,10 +141,18 @@ which can be interpreted as the probability of a random variable
 \end_inset
 
 .
- We can use this fact to get
+ 
+\end_layout
+
+\begin_layout Subsubsection
+b)
+\end_layout
+
+\begin_layout Standard
+We can use this fact to get
 \begin_inset Formula 
 \begin{align*}
-P(0<X<1.5) & =F(1.5)=\intop_{-\infty}^{1.5}f(x)\,dx=\intop_{0}^{1}x\,dx+\intop_{1}^{1.5}-x+2\,dx\\
+P(0<X<1.5) & =F(1.5)-F(0)=\intop_{-\infty}^{1.5}f(x)\,dx=\intop_{0}^{1}x\,dx+\intop_{1}^{1.5}-x+2\,dx\\
  & =\left[\frac{1}{2}x^{2}\right]_{0}^{1}+\left[-\frac{1}{2}x^{2}+2x\right]_{1}^{1.5}\\
  & =\frac{1}{2}-\frac{1}{2}\cdot\frac{9}{4}+2\cdot\frac{3}{2}-\left(-\frac{1}{2}+2\right)\\
  & =\frac{1}{2}-\frac{9}{8}+3+\frac{1}{2}-2=\frac{7}{8}.

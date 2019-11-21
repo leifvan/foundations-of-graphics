@@ -10,7 +10,9 @@ import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 from skimage import feature, io
 from skimage.filters import sobel
-from math import pi, radians, cos, sin
+from math import pi, radians, cos, sin, sqrt
+from scipy.spatial.distance import cdist
+from tqdm import tqdm
 
 # for comparisson
 import scipy.ndimage as ndim
@@ -21,11 +23,22 @@ from scipy.stats import multivariate_normal
 # Implement a function that, given an edge image and a range of radii, performs the Circular Hough Transform to create an accumulation array containing the votes for circles centered at the specific pixel and with a specific radius.
 def hough_circles(edge_map, radius_range):
     # you can compare you solution, to a reference implementation:
-    acc = hough_circle(edge_map, radius_range)  # <- remove this
+    #acc = hough_circle(edge_map, radius_range)  # <- remove this
+    #return acc
 
-    # TODO: remove above line and implement your own Hough Transformation:
-    # acc = ...
-    return acc
+    acc = np.zeros(shape=(len(radius_range), *edge_map.shape))
+    edge_points = np.argwhere(edge_map)
+
+    max_radius = radius_range[-1]
+    acc = np.pad(acc, pad_width=((0,0), (max_radius, max_radius), (max_radius, max_radius)))
+
+    for i, radius in enumerate(tqdm(radius_range)):
+        xx, yy = np.mgrid[-radius:radius, -radius:radius]
+        circle = np.isclose(xx ** 2 + yy ** 2, radius ** 2, atol=sqrt(radius))
+        for center in edge_points:
+            pcenter = center + max_radius
+            acc[i, pcenter[0]-radius:pcenter[0]+radius,pcenter[1]-radius:pcenter[1]+radius] += circle
+    return acc[:,max_radius:-max_radius, max_radius:-max_radius]
 
 
 # Implement this function for displaying four different slices for specific radii from the accumulation array. The first argument is the Hough accumulation array, the second argument is the same range of radii that was used to create the acculuation array.
@@ -38,18 +51,19 @@ def display_acc_slices(acc, radius_range):
 
     fh.suptitle("Radii slices")
     idx = np.linspace(0, acc.shape[0] - 1, 6, dtype=np.int32)
+    vmax = acc.max()
 
-    ax1.imshow(acc[idx[0], :, :], vmin=0, vmax=0.5)
-    ax2.imshow(acc[idx[1], :, :], vmin=0, vmax=0.5)
-    ax3.imshow(acc[idx[2], :, :], vmin=0, vmax=0.5)
-    ax4.imshow(acc[idx[3], :, :], vmin=0, vmax=0.5)
-    ax5.imshow(acc[idx[4], :, :], vmin=0, vmax=0.5)
-    ax6.imshow(acc[idx[5], :, :], vmin=0, vmax=0.5)
+    ax1.imshow(acc[idx[0], :, :], vmin=0, vmax=vmax)
+    ax2.imshow(acc[idx[1], :, :], vmin=0, vmax=vmax)
+    ax3.imshow(acc[idx[2], :, :], vmin=0, vmax=vmax)
+    ax4.imshow(acc[idx[3], :, :], vmin=0, vmax=vmax)
+    ax5.imshow(acc[idx[4], :, :], vmin=0, vmax=vmax)
+    ax6.imshow(acc[idx[5], :, :], vmin=0, vmax=vmax)
 
 
 # displays a set of circles, specified by three arrays containing x- & y-coordinates, as well as circle radius; optionally a score can be specified that is visulalized via the circle color (brighter color == higher score)
 def draw_circle(axes_handle, centers_x, centers_y, radii, scores=None):
-    axes_handle.hold(True)
+    #axes_handle.hold(True)
     n = 100  # number of samples for drawing circles
     if scores is None:
         colors = np.repeat(np.reshape([0, 0, 1], (1, 3)), 10, axis=0)
@@ -163,3 +177,4 @@ scores = scores[idxs[::-1]]
 
 # display results
 draw_circle(ax1, centers[:, 0], centers[:, 1], radii, scores)
+plt.show()

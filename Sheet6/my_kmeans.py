@@ -4,14 +4,14 @@ import scipy, scipy.spatial
 
 
 
-def my_kmeans(data, k):
+def my_kmeans(data, k, init_centers):
     # TODO:
     # The variable 'data' contains data points in its rows.
     # Initilize 'k' centers randomized.  Afterwards apply Floyd's algorithm
     # until convergence to get a solution of the k-means problem.  Utilize
     # 'scipy.spatial.cKDTree' for nearest neighbor computations.
     # data shape; (262144, 3)
-    centers = np.random.random((k, 3)) * 255
+    centers = init_centers
 
     membership_old = None
     while True:

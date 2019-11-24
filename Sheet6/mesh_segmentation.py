@@ -39,7 +39,9 @@ print("Starting computation...")
 # the normal vectors.  The array 'map_to_centers' should contain the index of the
 # center of each normal in 'VN'.
 #
-
+centers = np.random.standard_normal((k, 3))
+centers=centers/np.linalg.norm(centers)
+map_to_centers, center_colors = my_kmeans(points, k, centers)
 
 # Cluster Visualization
 colors=["r", "g", "b", "c", "m", "y", "k"]
@@ -47,6 +49,8 @@ ax = plt.figure().gca(projection='3d')
 ax.set_title("Clustering")
 # TODO:
 # create a plot as above, where each cluster has a different color
+ax.quiver(points[:, 0], points[:, 1], points[:, 2], normals[:, 0], normals[:, 1], normals[:, 2], length=0.01, colors=colors)
+ax.set_title("Data")
 
 print("done")
 plt.show()

@@ -43,8 +43,8 @@ for i in range(len(clusterAmounts)):
     # the colors 'colors'.  Assign the variable 'center_colors' with the
     # representative color of each center (dimension: k x 3).  The array
     # 'map_to_centers' should contain the center of each color in 'colors'.
-	
-    map_to_centers, center_colors = my_kmeans(colors,clusterAmounts[i])
+    centers = np.random.random((clusterAmounts[i], 3)) * 255
+    map_to_centers, center_colors = my_kmeans(colors,clusterAmounts[i], centers)
 
     # display image
     plot_image(i, 0, colors) # original image

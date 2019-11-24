@@ -44,7 +44,7 @@ for i in range(len(clusterAmounts)):
     # representative color of each center (dimension: k x 3).  The array
     # 'map_to_centers' should contain the center of each color in 'colors'.
 	
-    # map_to_centers, center_colors = ...
+    map_to_centers, center_colors = my_kmeans(colors,clusterAmounts[i])
 
     # display image
     plot_image(i, 0, colors) # original image
@@ -54,8 +54,13 @@ for i in range(len(clusterAmounts)):
     axes[i, 1].set_title("Clusters k={}".format(clusterAmounts[i]))
     
     # TODO:
+    cluster_colors = np.empty_like(colors)
     # Plot a reconstruction of the image, using only the cluster centers as colors
-    # plot_image(...)
+    for k in range(clusterAmounts[i]):
+        cluster_colors[map_to_centers == k] = center_colors[k]
+
+
+    plot_image(i, 2, cluster_colors)
     axes[i, 2].set_title("Reconstruction k={}".format(clusterAmounts[i]))
 
 plt.tight_layout(pad=0.1, w_pad=0.1)

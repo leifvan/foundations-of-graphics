@@ -151,10 +151,61 @@ c)
 \end_layout
 
 \begin_layout Standard
-As the error functon is strictly decreasing with each successive step we
+As the error function is strictly decreasing with each successive step we
  never get the same assignment twice.
  As we've just seen there is only a finite amount of possible assignments.
  Therefore the algorithm terminates after a finite amount of steps.
+\end_layout
+
+\begin_layout Subsection*
+Assignment 3) Expectation Maximization
+\end_layout
+
+\begin_layout Subsubsection*
+a)
+\end_layout
+
+\begin_layout Standard
+The result strongly depends on the initialization, as the assignment of
+ the data points are iteratively refined in subsequent steps.
+ A weak initialization can therefore lead to slow convergence speeds or
+ convergence towards a subpar optimum.
+ The refinement of a GMM with EM occurs locally, because the assignment
+ of a Gaussian distribution is dependent on the distance to the mean of
+ the distribution and the following parameter maximization (M-step) is based
+ on these local assignments.
+\end_layout
+
+\begin_layout Subsubsection*
+b)
+\end_layout
+
+\begin_layout Standard
+An incorrect number of clusters can cause hard-to-interpret results, as
+ e.g.
+ multiple clearly separated data clusters are be described by only one Gaussian
+ or a single cluster is wrongly described by multiple (small) Gaussians.
+\end_layout
+
+\begin_layout Subsubsection*
+c)
+\end_layout
+
+\begin_layout Standard
+Two possibilities to improve convergence could be (a) to run the algorithm
+ multiple times and select the best result and/or (b) to initialize it with
+ a simple clustering algorithm like k-means.
+\end_layout
+
+\begin_layout Subsubsection*
+d)
+\end_layout
+
+\begin_layout Standard
+The sampling influence result/run-time, as the parameter maximization solely
+ depends on the given data.
+ A very sparse or ambiguous sampling can lead to slow convergence or convergence
+ against a bad optimum.
 \end_layout
 
 \end_body

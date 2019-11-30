@@ -1,8 +1,7 @@
-import matplotlib.pyplot as plt
 import time
-import random
+import matplotlib.pyplot as plt
 import numpy as np
-from scipy import signal
+
 fig = plt.figure()
 position = np.array([
     np.arange(0, 100), np.zeros(100)])

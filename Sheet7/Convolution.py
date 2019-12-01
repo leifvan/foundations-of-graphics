@@ -27,16 +27,16 @@ def plotImg(img, title=None, ax=None, **more):
 def MyConvolve2d(f, g):
     pad_0, pad_1 = g.shape[0], g.shape[1]
     pad_half_0, pad_half_1 = pad_0 // 2, pad_1 // 2
+    c = np.zeros_like(f,shape=(f.shape[0]+pad_0,f.shape[1]+pad_1))
     f = np.pad(f, ((pad_0, pad_0), (pad_1, pad_1)), mode='wrap')
     g = np.flip(g, axis=0)
-    c = np.zeros_like(f)
 
     for i in range(f.shape[0] - pad_0):
         for j in range(f.shape[1] - pad_1):
-            f_patch = f[i:i + g.shape[0], j:j + g.shape[1]]
-            c[i + pad_half_0, j + pad_half_1] = np.sum(f_patch * g)
+            f_patch = f[i:i + pad_0, j:j + pad_1]
+            c[i ,j] = np.sum(np.multiply(f_patch, g))
 
-    return c[pad_half_0 + 1:-pad_half_0, pad_half_1:-pad_half_1 - 1]
+    return c[1:,:-1]
 
 
 # Part B
@@ -102,4 +102,4 @@ def PartB():
 
 
 PartA()
-PartB()
+#PartB()

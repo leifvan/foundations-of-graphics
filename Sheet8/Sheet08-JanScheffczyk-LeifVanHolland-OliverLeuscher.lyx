@@ -584,6 +584,91 @@ We know that
 
 \begin_layout Subsection*
 Assignment 4) Principal Component Analysis and Compression
+\begin_inset Newline newline
+\end_inset
+
+a)^
+\end_layout
+
+\begin_layout Standard
+Using PCA we generate a new basis for our data.
+\begin_inset Newline newline
+\end_inset
+
+Let 
+\begin_inset Formula $X\in\mathbb{R}^{m\times n}$
+\end_inset
+
+ then we get 
+\begin_inset Formula $X=U\Sigma V^{T}$
+\end_inset
+
+ where 
+\begin_inset Formula $U\in\mathbb{R}^{m\times m}$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma\in\mathbb{R}^{m\times n}$
+\end_inset
+
+, 
+\begin_inset Formula $U\in\mathbb{R}^{n\times n}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The principal components in 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ determining the variation of the data on each of our newly acquired axis.
+ This allows us to choose the components with the highest variation in the
+ data which will already approximate original data as it contains most of
+ the information.
+ Assuming that the matrices are sorted by singular values we choose the
+ first 
+\begin_inset Formula $r$
+\end_inset
+
+ component to represent the data.
+\begin_inset Newline newline
+\end_inset
+
+Let 
+\begin_inset Formula $X\in\mathbb{R}^{m\times n}$
+\end_inset
+
+ then we get 
+\begin_inset Formula $X\approx U\Sigma V^{T}$
+\end_inset
+
+ where 
+\begin_inset Formula $U\in\mathbb{R}^{m\times r}$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma\in\mathbb{R}^{r\times r}$
+\end_inset
+
+, 
+\begin_inset Formula $U\in\mathbb{R}^{r\times n}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Choosing 
+\begin_inset Formula $r<<m$
+\end_inset
+
+ we can save significant amounts storage.
 \end_layout
 
 \end_body

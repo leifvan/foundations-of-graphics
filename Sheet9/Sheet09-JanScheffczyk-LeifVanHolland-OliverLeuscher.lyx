@@ -210,8 +210,161 @@ The circumfrence of two circles with different radii also differes.
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection*
+Assignment 3) Bezier Curves
+\end_layout
 
+\begin_layout Paragraph
+a)
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $i$
+\end_inset
+
+-th out of 
+\begin_inset Formula $n$
+\end_inset
+
+Bernstein Polynomials is defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B_{i}^{n}(t)=\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)t^{i}(1-t)^{n-i},t\in[0,1]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the properties:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\sum_{i=0}^{n}B_{i}^{n}(t)=1 & \mathrm{\mathrm{{Partition\,of\,unity}}}\\
+B_{i}^{n}(t)\geq0,t\in[0,1] & \mathrm{\mathrm{{Nonnegativity}}}\\
+B_{i}^{n}(t)=B_{n-i}^{n}(1-t) & \mathrm{\mathrm{{Symmetry}}}\\
+B_{i}^{n}(t)=B_{i-1}^{n-1}(t)+(1-t)B_{i}^{n-1}(t) & \mathrm{\mathrm{{Recursive\,definition}}}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+b)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(t)=\sum_{i=0}^{n}b_{i}B_{i}^{n}(t),\,\,\,t\in[0,1],\,\,b_{i}\in\mathbb{{R}}^{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+are the control points that are approximated, execpt for the first and last
+ point of the polygon.
+ Since every polygon is strictly positive the approximated curve is completly
+ contained in the convex hull of the control points, see .
+ 
+\end_layout
+
+\begin_layout Paragraph
+c)
+\end_layout
+
+\begin_layout Standard
+In order to extend beyond the convex hull of the control points at least
+ one Bernstein polynom would have to be less then 0 or more than 1 somewhere
+ within the range of 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ If we look at the individual factors 
+\begin_inset Formula $\left(\begin{array}{c}
+n\\
+i
+\end{array}\right),\,\,t^{i},\,\,(1-t)^{n-i}$
+\end_inset
+
+ it is apperent that they are all strictly greater than 0, thus their product
+ is positive as well.
+ The binomial therom states that 
+\begin_inset Formula $\sum_{i}^{n}B_{i}^{n}(t)=1,\forall t\in[0,1]$
+\end_inset
+
+ as such each individual polynom has to be less than 1.
+ As such all Bernstein polynoms are contained in the range 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+ and as such the resulting curve is contained in the convex hull of its
+ control points.
+\end_layout
+
+\begin_layout Subsection*
+Assignment 4) Splines
+\end_layout
+
+\begin_layout Paragraph
+a)
+\end_layout
+
+\begin_layout Itemize
+Adjust control points only has a local effect in a certain range around
+ the point.
+ The range depends on the specific type of polynom used for each piece of
+ the spline.
+\end_layout
+
+\begin_layout Itemize
+The degree of the used polynomials is constant and usually small.
+\end_layout
+
+\begin_layout Itemize
+Controls are more intuitive to the user as he can also adjust the differential
+ properties(tagents) at the control points.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+b)
+\end_layout
+
+\begin_layout Standard
+Splines are a list of polynomial curves that fullfill a application specific
+ set of continuity constraints with respect to each other to achieve a smooth
+ curve.
+ The first set of constrains enforces smooth connection by setting the n-th-deri
+vative of the two curve equal at the connection.
+ The second constraint enforces a reparametrisation such that a single parameter
+ can be used to traverse the whole curve.
 \end_layout
 
 \end_body

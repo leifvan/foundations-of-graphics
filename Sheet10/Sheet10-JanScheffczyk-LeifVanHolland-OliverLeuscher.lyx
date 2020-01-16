@@ -1,0 +1,168 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{pgfplots}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Sheet 10 - Colors
+\end_layout
+
+\begin_layout Author
+Jan Scheffczyk - 3242317
+\begin_inset Newline newline
+\end_inset
+
+Leif Van Holland - 2563657
+\begin_inset Newline newline
+\end_inset
+
+Oliver Leuschner - 3205025
+\end_layout
+
+\begin_layout Subsection*
+Assignment 3) Radiant Flux and Radiance
+\end_layout
+
+\begin_layout Paragraph
+a)
+\end_layout
+
+\begin_layout Standard
+The area 
+\begin_inset Formula $A_{P}$
+\end_inset
+
+ of the parabolic object is exactly one quarter of the area 
+\begin_inset Formula $A_{S}$
+\end_inset
+
+ of the sphere with radius 
+\begin_inset Formula $R=1$
+\end_inset
+
+.
+ For the flux 
+\begin_inset Formula $\Phi_{e,P}$
+\end_inset
+
+ through the parabolic object we get 
+\begin_inset Formula 
+\[
+\Phi_{e,P}=\Phi_{e}\cdot\frac{A_{P}}{A_{S}}=8W\cdot\frac{A_{S}}{4\cdot A_{S}}=2W.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+b)
+\end_layout
+
+\begin_layout Standard
+To get intensity 
+\begin_inset Formula $I_{e}$
+\end_inset
+
+ from radiance 
+\begin_inset Formula $L_{e}$
+\end_inset
+
+, we have to integrate radiance over a differential surface area 
+\begin_inset Formula $dA$
+\end_inset
+
+ (instead of integrating over a differential solid angle).
+ We can derive this relationship starting with the definition of radiance:
+\begin_inset Formula 
+\begin{align*}
+L_{e} & =\frac{d^{2}\Phi_{e}}{\cos\theta\cdot dA\cdot d\omega}\\
+\iff\intop_{A}L_{e}\cdot dA & =\frac{d\Phi_{e}}{\cos\theta\cdot d\omega}\\
+\iff\intop_{A}L_{e}\cdot\cos\theta\cdot dA & =\frac{d\Phi_{e}}{d\omega}=:I_{e}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
